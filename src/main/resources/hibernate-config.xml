@@ -17,6 +17,8 @@
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
 
         <mapping class="com.java.model.Doctor"/>
+        <mapping class="com.java.model.Appointment"/>
+
     </session-factory>
 </hibernate-configuration>
 

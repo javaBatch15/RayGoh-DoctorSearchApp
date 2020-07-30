@@ -42,9 +42,8 @@
             color: #333;
             background-color: #f0f0f0;
         }
-
-        .tg
     </style>
+    <link rel="stylesheet" type="text/css" href="tableStyle.css">
 </head>
 <body>
 <h2>Enter search filters</h2>
@@ -71,6 +70,7 @@
         <td>Zip code</td>
         <td>Street</td>
         <td>Rating</td>
+        <td></td>
     </tr>
     <c:if test = "${doctorList.size()>0}">
         <c:forEach items="${doctorList}" var="doctor">
@@ -83,6 +83,14 @@
                 <td>${doctor.zipcode}</td>
                 <td>${doctor.street}</td>
                 <td>${doctor.rating}</td>
+                <td>
+                    <form action="/appointments" method="post">
+                        <input type="hidden" name="doc" value="${doctor.id}">
+                        <input type="hidden" name="firstname" value="${doctor.firstname}">
+                        <input type="hidden" name="lastname" value="${doctor.lastname}">
+                        <input type="submit" value="Book Appointment">
+                    </form>
+                </td>
             </tr>
         </c:forEach>
     </c:if>
